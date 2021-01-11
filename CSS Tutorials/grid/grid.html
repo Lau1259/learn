@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Grid Interactive Tutorial</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/grid-tutorial.css">
+</head>
+
+<body>
+  <div class="container">
+    <main class="main-content">
+      <div class="tutorial" id="js-tutorial">
+        <div class="visual" id="d1">1</div>
+        <div class="visual" id="d2">2</div>
+        <div class="visual" id="d3">3</div>
+        <div class="visual" id="d4">4</div>
+        <div class="visual" id="d5">5</div>
+        <div class="visual" id="d6">6</div>
+        <div class="visual" id="d7">7</div>
+        <div class="visual" id="d8">8</div>
+        <div class="visual" id="d9">9</div>
+        <div class="visual" id="d10">10</div>
+      </div>
+    </main>
+    <aside class="sidebar">
+      <h1>CSS Grid Tutorial</h1>
+      <h2>CSS Styles:</h2>
+      <div class="code-block">
+        <p class="code">.tutorial {</p>
+        <p class="code">display: grid</p>
+        <label class="code" for="grid-columns">grid-template-columns:</label>
+        <span class="code">repeat(
+          <input type="number" name="grid-columns" id="grid-columns" value="3" min="1" max="12">, 1fr)</span>
+        <label class="code" for="grid-rows">grid-template-rows:</label>
+        <span class="code">repeat(
+          <input type="number" name="grid-rows" id="grid-rows" value="4" min="1" max="12" size="1">, 1fr)</span>
+        <p class="code">}</p>
+      </div>
+      <button type="button" class="btnUpdate" onclick="updateGrid()">Update Grid</button>
+      <div class="info">
+        <h3>Extra information:</h3>
+        The grid in the example has the class tutorial and uses the above style rules to modify it's layout.
+      </div>
+    </aside>
+  </div>
+  <script src="js/grid.js"></script>
+</body>
+
+</html>

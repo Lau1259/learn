@@ -1,0 +1,93 @@
+.container {
+  background-color: rgb(20, 20, 20);
+  color: #ccffe1;
+  display: grid;
+  grid-template-areas: "sidebar main";
+  grid-template-columns: minmax(200px, 3fr) 6fr;
+  min-height: 100vh;
+  height: 100%;
+}
+
+main {
+  padding: 1.5em;
+  grid-area: main;
+}
+
+/* Sidebar styles */
+aside {
+  grid-area: sidebar;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 1em;
+  padding-right: 1.2em;
+  border-right: solid #fff 0.25em;
+}
+aside h1,
+aside h2 {
+  margin: 0;
+}
+aside h1 {
+  color: #4eff98;
+  margin-bottom: 0.25em;
+}
+aside h2 {
+  font-size: 1.25em;
+  margin-bottom: 1em;
+}
+aside input {
+  display: inline;
+  width: 2em;
+  background-color: rgba(250, 250, 250, 0.15);
+  color: #4eff98;
+}
+.code-block .code {
+  padding: 0;
+  margin: 0;
+  line-height: 1.5em;
+  display: block;
+}
+/* Extra information Styles */
+.info {
+  min-height: 25vh;
+  margin-top: 1em;
+  border: 2px solid #4eff98;
+  padding: 0.5em 1em;
+  text-align: center;
+}
+.info h3 {
+  margin: 0;
+  margin-bottom: 0.75em;
+  border-bottom: 2px solid #4eff98;
+  width: 100%;
+  font-size: 1em;
+  color: #4eff98;
+}
+/* Tutorial Styles */
+.tutorial {
+  background-color: rgba(250, 250, 250, 0.15);
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #4eff98;
+  font-size: 3rem;
+}
+.btnUpdate {
+  background-color: transparent;
+  color: #4eff98;
+  border: #4eff98 solid 2px;
+  border-radius: 2em;
+  cursor: pointer;
+  margin: 0.5em 0;
+  transition: 0.35s;
+}
+.btnUpdate:hover {
+  color: #000;
+  background-color: #4eff98;
+}
