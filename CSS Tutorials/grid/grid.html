@@ -10,6 +10,16 @@
 </head>
 
 <body>
+  <header>
+    <h1>Learn</h1>
+    <ul>
+      <li><a href="Home"></a></li>
+      <li><a href="">CSS Tutorials</a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+    </ul>
+  </header>
   <div class="container">
     <main class="main-content">
       <div class="tutorial" id="js-tutorial">
@@ -26,26 +36,37 @@
       </div>
     </main>
     <aside class="sidebar">
-      <h1>CSS Grid Tutorial</h1>
-      <h2>CSS Styles:</h2>
+      <h2>CSS Grid Tutorial</h2>
+      <h3>CSS Styles:</h3>
       <div class="code-block">
         <p class="code">.tutorial {</p>
         <p class="code">display: grid</p>
         <label class="code" for="grid-columns">grid-template-columns:</label>
-        <span class="code">repeat(
-          <input type="number" name="grid-columns" id="grid-columns" value="3" min="1" max="12">, 1fr)</span>
+        <p class="code">repeat(
+          <input type="number" name="grid-columns" id="grid-columns" value="3" min="1" max="12">, 1fr)</p>
         <label class="code" for="grid-rows">grid-template-rows:</label>
-        <span class="code">repeat(
-          <input type="number" name="grid-rows" id="grid-rows" value="4" min="1" max="12" size="1">, 1fr)</span>
+        <p class="code">repeat(
+          <input type="number" name="grid-rows" id="grid-rows" value="4" min="1" max="12">, 1fr)</p>
         <p class="code">}</p>
       </div>
-      <button type="button" class="btnUpdate" onclick="updateGrid()">Update Grid</button>
-      <div class="info">
-        <h3>Extra information:</h3>
-        The grid in the example has the class tutorial and uses the above style rules to modify it's layout. I am using repeat in both the column and rows because all columns and rows are to be the same size. That is 1fr which basically tells the browser to auto-size them to fit.
-        Note that, if you have less rows than necessary, the grid will auto size any rows under it to fit the content inside of it.
-      </div>
     </aside>
+    <div class="info">
+      <h4>Extra information:</h4>
+      <div class="info-data">
+        <p>The grid in the example has the class tutorial and uses the above style rules to modify it's layout. I am
+          using repeat in both the column and rows because all columns and rows are to be the same size.</p>
+        <p>The size is achieved by using 1fr on the repeat statement for both the columns and rows. This will automatically set an equal size for each column and row.</p>
+        <p>Note that, if you have less rows
+          than necessary, the grid will automatically resize any rows after the specified amount to fit the content
+          inside of it.</p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; Lautaro Cuevas 2020</p>
+  </footer>
+  <div id="toast-container">
+
   </div>
   <script src="js/grid.js"></script>
 </body>
