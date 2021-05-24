@@ -1,0 +1,134 @@
+//Colors
+$dark: hsl(0, 27%, 5%);
+$light: rgb(214, 200, 161);
+$accent1: rgb(146, 22, 22);
+$padding: 1.5rem;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  line-height: 1.6;
+  background: $dark;
+  font-family: sans-serif;
+}
+
+.card {
+  color: $light;
+  background-image: url("../img/leap.jpg");
+  background-size: cover;
+  padding: 8rem 0 0 0;
+  // CH adapts to the current font-size. Think about it as 35 characters wide.
+  max-width: 35ch;
+  // Since the card content is separate this line must be placed in the card-content class as well or we can use an overflow of hidden.
+  border-radius: 1.25rem;
+  overflow: hidden;
+  transition: transform 500ms ease;
+  &:hover,
+  &:focus-within {
+    @media (hover) {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.card-content {
+  padding: $padding;
+  background: linear-gradient(
+    hsla(0, 0%, 0%, 0),
+    hsla(0, 0%, 0%, 0.3) 15%,
+    hsla(0, 0%, 0%, 1)
+  );
+  // border-radius: 1.25rem;
+  @media (hover) {
+    transform: translateY(68%);
+    transition: transform 500ms ease;
+  }
+  // This is to hide all children until we hover
+  & > *:not(.card-title) {
+    @media (hover) {
+      transition: opacity 500ms linear;
+      opacity: 0;
+    }
+  }
+}
+
+.card:hover .card-content,
+.card:focus-within .card-content {
+  // The 0 is to make it go back to the initial y value instead of the translated value.
+  transform: translateY(0);
+  // This delay makes sure the content doesn't animate until the bar is drawn.
+  transition-delay: 550ms;
+  & > *:not(.card-title) {
+    opacity: 1;
+    transition-delay: 950ms;
+  }
+}
+
+.card:focus-within .card-content {
+  // This makes sure the transition is faster to avoid bugs like having things jumping to the top slowly.
+  transition-duration: 0ms;
+  transition-delay: 550ms;
+}
+
+.card-title {
+  position: relative;
+  width: max-content;
+  bottom: 3px;
+}
+
+.card-title::after {
+  content: "";
+  height: 4px;
+  // Must use interpolation to use value of the SASS variable
+  width: calc(100% + #{$padding});
+  position: absolute;
+  left: -$padding;
+  bottom: 0;
+  background: $accent1;
+  @media (hover) {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 500ms ease;
+  }
+}
+
+// I repeat the card:hover selector to improve readability instead of nesting it above.
+.card:hover .card-title::after,
+.card:focus-within .card-title::after {
+  transform: scaleX(1);
+}
+
+.button {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: $dark;
+  background: $accent1;
+  color: $light;
+  padding: 0.5em 1.25em;
+  border-radius: 0.45em;
+  transition: background 500ms ease;
+  &:hover,
+  &:focus {
+    background-color: $light;
+    color: $accent1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
